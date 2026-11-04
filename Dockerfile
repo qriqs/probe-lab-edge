@@ -1,4 +1,4 @@
-# Edge endpoint: HTTP/WebSocket relay on :8080 behind the platform TLS proxy.
+# Edge endpoint: HTTP/WebSocket relay on :3000 behind the platform TLS proxy.
 # The Xray binary is copied into plain Alpine (the stock image has no shell).
 FROM teddysun/xray:latest AS xraybin
 
@@ -9,5 +9,5 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENV VLESS_UUID=
 ENV VLESS_PATH=/ws
-EXPOSE 8080
+EXPOSE 3000
 ENTRYPOINT ["/entrypoint.sh"]
